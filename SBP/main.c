@@ -140,6 +140,18 @@ int load(int one, int two, int three)
     }
 }
 
+void help ()
+{
+    printf ("\nHelp:\n"
+            "This program can take three commands: \n\n"
+            "put <siding number> <number of wagons>\n"
+            "takes two parameters: the destination siding number and number of wagons to move\n\n"
+            "take <siding number> <number of wagons>\n"
+            "takes two parameters: the source siding and number of wagons to move\n\n"
+            "load <siding 1 wagon count> <siding 2 wagon count> <siding 3 wagon count>\n"
+            "takes three parameters: number of wagons to put in the siding one two and three\n\n");
+}
+
 const char* getSwitch (enum router router)
 {
     switch (router) 
@@ -148,6 +160,7 @@ const char* getSwitch (enum router router)
        case REVERSE: return "REVERSE";
     }
 }
+
 /*
  * 
  */
@@ -190,6 +203,11 @@ int main(int argc, char** argv)
             {
                 status = take(siding, wagons);
             }
+        }
+        else if (command[0] == 'h')
+        {
+            help();
+            continue;
         }
         else
         {
