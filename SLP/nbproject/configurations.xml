@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>siding.h</itemPath>
       <itemPath>vehicle.h</itemPath>
       <itemPath>wagon.h</itemPath>
     </logicalFolder>
@@ -15,6 +16,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.cpp</itemPath>
+      <itemPath>siding.cpp</itemPath>
       <itemPath>vehicle.cpp</itemPath>
       <itemPath>wagon.cpp</itemPath>
     </logicalFolder>
@@ -42,8 +44,15 @@
         <ccTool>
           <standard>8</standard>
         </ccTool>
+        <linkerTool>
+          <commandLine>-lboost_system -pthread</commandLine>
+        </linkerTool>
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="siding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="siding.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="vehicle.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -75,6 +84,10 @@
         </asmTool>
       </compileType>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="siding.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="siding.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="vehicle.cpp" ex="false" tool="1" flavor2="0">
       </item>

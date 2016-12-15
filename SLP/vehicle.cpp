@@ -9,6 +9,7 @@
  */
 #include <iostream>
 #include <string>
+#include <boost/algorithm/string.hpp>
 
 #include "vehicle.h"
 
@@ -20,7 +21,9 @@ vehicle::vehicle(boost::tokenizer<boost::escaped_list_separator<char> >::iterato
     serial_no_ = std::stoi(*data);
     ++data;
 
-    owner_ = *data;
+    std::string owner = *data;
+    boost::trim(owner);
+    owner_ = owner;
     ++data;
 }
 

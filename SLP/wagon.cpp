@@ -8,17 +8,44 @@
  * File:   wagon.cpp
  * Author: jaj48
  * 
- * Created on 13 December 2016, 19:02
+ * Created on 14 December 2016, 12:32
  */
 
+#include <cstdlib>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <boost/tokenizer.hpp>
+#include <boost/algorithm/string.hpp>
+#include "vehicle.h"
 #include "wagon.h"
 
-wagon::wagon() {
+using namespace std;
+
+wagon::wagon(boost::tokenizer<boost::escaped_list_separator<char> >::iterator &data)
+: vehicle(data)
+{
+    string contents = *data;
+    boost::trim(contents);
+    
+    cargo = contents;
 }
 
-wagon::wagon(const wagon& orig) {
+//wagon::~wagon()
+//{
+//    cout << "Destroying wagon." << endl;
+//}
+
+string wagon::getCargo()
+{
+    return cargo;
 }
 
-wagon::~wagon() {
+string wagon::streamHelper() const
+{
+    stringstream os;
+    
+    os << this->vehicle::streamHelper() << " Cargo: " << cargo;
+    
+    return os.str();
 }
-

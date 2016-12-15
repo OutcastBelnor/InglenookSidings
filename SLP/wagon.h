@@ -8,13 +8,16 @@
  * File:   wagon.h
  * Author: jaj48
  *
- * Created on 13 December 2016, 19:02
+ * Created on 14 December 2016, 12:32
  */
 
 #ifndef WAGON_H
 #define WAGON_H
 
 #include <cstdlib>
+#include <iostream>
+#include <sstream>
+#include <boost/tokenizer.hpp>
 #include "vehicle.h"
 
 using namespace std;
@@ -22,9 +25,13 @@ using namespace std;
 class wagon : public vehicle
 {
     public:
-        wagon();
-        wagon(const wagon& orig);
-        virtual ~wagon();
+        wagon(boost::tokenizer<boost::escaped_list_separator<char> >::iterator &data);
+//        virtual ~wagon();
+        string getCargo();
+        
+    protected:
+        string streamHelper() const override;
+        
     private:
         string cargo;
 };
